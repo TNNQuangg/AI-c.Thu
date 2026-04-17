@@ -1,0 +1,601 @@
+text,label
+"I love this product",1
+"This movie is amazing",1
+"The service was excellent",1
+"I am very happy",1
+"This food tastes great",1
+"The book is wonderful",1
+"I really like this phone",1
+"The experience was fantastic",1
+"This is a good choice",1
+"I feel satisfied with the result",1
+"The design looks beautiful",1
+"This app works perfectly",1
+"The music sounds lovely",1
+"I enjoy this game a lot",1
+"The quality is impressive",1
+"This laptop is very good",1
+"The camera is excellent",1
+"I am pleased with the service",1
+"The package arrived safely",1
+"This lesson is very useful",1
+"I feel great today",1
+"The staff were friendly",1
+"This restaurant is awesome",1
+"The drink tastes wonderful",1
+"I had a pleasant experience",1
+"This shirt looks nice",1
+"The performance was brilliant",1
+"I am satisfied with this purchase",1
+"The weather is lovely today",1
+"This idea is smart",1
+"I had a great time",1
+"The customer support was helpful",1
+"This device is reliable",1
+"The room was clean and comfortable",1
+"I appreciate your kindness",1
+"The game is fun and exciting",1
+"This website is easy to use",1
+"The presentation was impressive",1
+"I feel confident about this",1
+"The picture quality is sharp",1
+"This cake tastes delicious",1
+"The results are very promising",1
+"I am thankful for your help",1
+"The train was on time",1
+"This book is inspiring",1
+"The interface is smooth",1
+"I am delighted with the outcome",1
+"This plan sounds excellent",1
+"The shoes are very comfortable",1
+"I think this is perfect",1
+"I hate this product",0
+"This movie is terrible",0
+"The service was awful",0
+"I am very disappointed",0
+"This food tastes bad",0
+"The book is boring",0
+"I really dislike this phone",0
+"The experience was horrible",0
+"This is a bad choice",0
+"I feel unhappy with the result",0
+"The design looks ugly",0
+"This app works poorly",0
+"The music sounds annoying",0
+"I dislike this game a lot",0
+"The quality is disappointing",0
+"This laptop is very slow",0
+"The camera is awful",0
+"I am upset with the service",0
+"The package arrived damaged",0
+"This lesson is very confusing",0
+"I feel terrible today",0
+"The staff were rude",0
+"This restaurant is awful",0
+"The drink tastes disgusting",0
+"I had a painful experience",0
+"This shirt looks weird",0
+"The performance was weak",0
+"I regret this purchase",0
+"The weather is horrible today",0
+"This idea is foolish",0
+"I had a bad time",0
+"The customer support was useless",0
+"This device is unreliable",0
+"The room was dirty and uncomfortable",0
+"I dislike your attitude",0
+"The game is dull and frustrating",0
+"This website is hard to use",0
+"The presentation was disappointing",0
+"I feel nervous about this",0
+"The picture quality is blurry",0
+"This cake tastes terrible",0
+"The results are very disappointing",0
+"I am unhappy with your help",0
+"The train was very late",0
+"This book is confusing",0
+"The interface is rough",0
+"I am frustrated with the outcome",0
+"This plan sounds terrible",0
+"The shoes are very uncomfortable",0
+"I think this is awful",0
+"I love this product!",1
+"The service was absolutely wonderful.",1
+"Highly recommended for everyone.",1
+"This is the best purchase I have ever made.",1
+"The quality is top-notch.",1
+"The staff was very friendly and helpful.",1
+"I am extremely satisfied with the results.",1
+"Great value for the price.",1
+"Everything worked perfectly.",1
+"The design is beautiful and modern.",1
+"I had a fantastic experience today.",1
+"Shipping was very fast.",1
+"The food was delicious and fresh.",1
+"An excellent addition to my collection.",1
+"Truly a masterpiece of engineering.",1
+"It exceeded all my expectations.",1
+"Simple, elegant, and effective.",1
+"I will definitely buy this again.",1
+"The user interface is very intuitive.",1
+"Superb customer support team.",1
+"A brilliant solution to a common problem.",1
+"I feel so happy using this.",1
+"The performance is incredibly smooth.",1
+"Five stars for this amazing app!",1
+"So glad I found this service.",1
+"It makes my life so much easier.",1
+"Perfect for beginners and experts alike.",1
+"The atmosphere was very cozy.",1
+"A very reliable and sturdy product.",1
+"Impressive attention to detail.",1
+"The best part is the battery life.",1
+"Lightweight and easy to carry around.",1
+"The colors are vibrant and sharp.",1
+"I am pleasantly surprised by the quality.",1
+"An absolute joy to use every day.",1
+"Worth every single penny.",1
+"The sound quality is crystal clear.",1
+"Very professional and timely delivery.",1
+"I love the new features in this update.",1
+"It fits perfectly and looks great.",1
+"The instructions were very clear.",1
+"Strongly recommend this to my friends.",1
+"Outstanding performance under pressure.",1
+"A wonderful gift for any occasion.",1
+"The team did a great job on this.",1
+"I couldn't be happier with my choice.",1
+"Clean, fast, and very efficient.",1
+"Truly a game changer in the industry.",1
+"The best customer experience so far.",1
+"Love the minimalistic style.",1
+"This is the worst product ever.",0
+"The service was terrible and slow.",0
+"Waste of money and time.",0
+"I am very disappointed with the quality.",0
+"The staff was rude and unhelpful.",0
+"It broke after just two days of use.",0
+"Avoid this brand at all costs.",0
+"The user interface is very confusing.",0
+"Shipping took way too long.",0
+"The food was cold and tasteless.",0
+"I hate how this looks and feels.",0
+"Poor customer support experience.",0
+"It does not work as advertised.",0
+"The battery dies very quickly.",0
+"Totally useless for my needs.",0
+"Extremely overpriced for what it is.",0
+"The software is full of bugs.",0
+"I regret buying this item.",0
+"The instructions were impossible to follow.",0
+"Very low quality materials used.",0
+"Horrible experience from start to finish.",0
+"The sound is distorted and noisy.",0
+"Too small and very uncomfortable.",0
+"I will never use this service again.",0
+"The app keeps crashing every minute.",0
+"Not worth the hype at all.",0
+"The color looks nothing like the picture.",0
+"I had to wait for hours to get help.",0
+"The material feels cheap and plastic.",0
+"A complete disaster of a project.",0
+"The screen is blurry and dim.",0
+"The smell is very unpleasant.",0
+"It came with many scratches.",0
+"Don't bother buying this product.",0
+"The connection is very unstable.",0
+"Customer service ignored my emails.",0
+"The design is old and outdated.",0
+"Not recommended for professional use.",0
+"It lacks basic features.",0
+"The weight is way too heavy.",0
+"I am so angry right now.",0
+"The package arrived damaged.",0
+"Very difficult to set up and install.",0
+"The results were very inconsistent.",0
+"It feels like a scam.",0
+"The interface is slow and laggy.",0
+"Unreliable and poorly made.",0
+"The company has a bad reputation.",0
+"I would give it zero stars if I could.",0
+"Worst experience of my life.",0
+"This is exactly what I was looking for.",1
+"The battery life is remarkably long.",1
+"The interface is clean and very responsive.",1
+"I am so impressed with the build quality.",1
+"This book changed my perspective on life.",1
+"The cinematography in this movie is stunning.",1
+"The customer service team is top tier.",1
+"I feel much more productive with this tool.",1
+"The delivery arrived earlier than expected.",1
+"It works like a charm every single time.",1
+"The colors are so vibrant and beautiful.",1
+"A very thoughtful and well-designed product.",1
+"I've never been happier with a purchase.",1
+"The packaging was very secure and neat.",1
+"The flavor is rich and authentic.",1
+"Such a peaceful and relaxing environment.",1
+"The setup process was incredibly simple.",1
+"Highly efficient and saves me so much time.",1
+"The updates keep making it better and better.",1
+"It fits like a glove and feels great.",1
+"The staff went above and beyond for us.",1
+"Truly an innovative piece of technology.",1
+"The price is unbeatable for this quality.",1
+"I love the attention to detail here.",1
+"Everything was organized and professional.",1
+"A perfect solution for my daily needs.",1
+"The sound is deep and immersive.",1
+"I highly recommend this to anyone interested.",1
+"The support team was quick to respond.",1
+"The finish is smooth and looks premium.",1
+"I am pleasantly surprised by how well it works.",1
+"The menu has a great variety of options.",1
+"It makes a wonderful gift for friends.",1
+"The app is very stable and never crashes.",1
+"I feel very safe using this service.",1
+"The fabric is soft and very comfortable.",1
+"A very reliable choice for long-term use.",1
+"The view from the room was breathtaking.",1
+"The logic behind the design is very smart.",1
+"I appreciate the eco-friendly packaging.",1
+"The results were visible almost immediately.",1
+"It is very intuitive even for beginners.",1
+"The speed of the processor is amazing.",1
+"I couldn't ask for a better experience.",1
+"The lighting creates a wonderful mood.",1
+"This is a must-have for every household.",1
+"The team is very passionate and dedicated.",1
+"It exceeded my expectations in every way.",1
+"Very easy to clean and maintain.",1
+"I will definitely be a returning customer.",1
+"This was a complete waste of my time.",0
+"The quality is nowhere near what I expected.",0
+"It started falling apart after one week.",0
+"The customer support was non-existent.",0
+"I am extremely frustrated with this app.",0
+"The movie was boring and predictable.",0
+"The food was bland and overpriced.",0
+"It is much smaller than it looks in photos.",0
+"The noise level is way too high.",0
+"I had a very bad reaction to the material.",0
+"The instructions are confusing and vague.",0
+"The item arrived broken and unusable.",0
+"I feel like I've been cheated by this brand.",0
+"The connection keeps dropping constantly.",0
+"The design is clunky and unattractive.",0
+"It is very difficult to navigate the website.",0
+"The smell was overwhelming and chemical.",0
+"I am very disappointed with this service.",0
+"The software is very slow and laggy.",0
+"It doesn't fit at all, very poor sizing.",0
+"The staff was incredibly rude and arrogant.",0
+"I regret spending my money on this.",0
+"The shipping cost was way too expensive.",0
+"The battery overheats after 10 minutes.",0
+"The product feels very cheap and flimsy.",0
+"I've had nothing but problems with this.",0
+"The color faded after the first wash.",0
+"The subscription is impossible to cancel.",0
+"It doesn't work with my other devices.",0
+"The screen has a lot of dead pixels.",0
+"I waited for an hour and no one helped.",0
+"The case is very slippery and hard to hold.",0
+"The ending of the story made no sense.",0
+"The update actually made the app worse.",0
+"The box was crushed when it arrived.",0
+"It's a total scam, do not buy it.",0
+"The buttons are very hard to press.",0
+"The information provided was inaccurate.",0
+"The room was dirty and smelled bad.",0
+"The audio quality is muffled and low.",0
+"I am very unhappy with this purchase.",0
+"It lacks many of the advertised features.",0
+"The assembly was a total nightmare.",0
+"The product is extremely unreliable.",0
+"I will never recommend this to anyone.",0
+"The interface is outdated and ugly.",0
+"It keeps freezing every time I use it.",0
+"The material is very scratchy and rough.",0
+"I've seen much better products for less.",0
+"Overall, a very negative experience.",0
+"This is the most incredible experience I've had.",1
+"The battery charges incredibly fast.",1
+"A truly remarkable and unique design.",1
+"The quality of the material is superb.",1
+"I am so happy with this new update.",1
+"The staff was attentive and very professional.",1
+"It works flawlessly without any issues.",1
+"The flavor is absolutely exquisite.",1
+"This is a must-buy for anyone in the field.",1
+"I highly appreciate the fast shipping.",1
+"The UI is very clean and easy to use.",1
+"A brilliant piece of work by the developers.",1
+"The results were better than I imagined.",1
+"I feel very confident using this product.",1
+"The customer support solved my issue instantly.",1
+"It is worth every penny spent.",1
+"The sound is rich and very balanced.",1
+"The instructions were clear and helpful.",1
+"I love the minimalist aesthetic.",1
+"Truly a game-changer for my workflow.",1
+"The atmosphere was vibrant and welcoming.",1
+"The app is very lightweight and fast.",1
+"I am impressed by the durability.",1
+"A wonderful addition to my daily routine.",1
+"The color is exactly as shown in the picture.",1
+"The setup was done in just a few minutes.",1
+"I highly recommend this to my colleagues.",1
+"The performance is rock solid.",1
+"It feels very premium and high-end.",1
+"The best customer service I've ever had.",1
+"The design is both functional and beautiful.",1
+"I am pleasantly surprised by the features.",1
+"The battery life lasted the whole day.",1
+"The food was served hot and fresh.",1
+"A very reliable and trustworthy brand.",1
+"The interface is very modern and sleek.",1
+"I feel much more organized now.",1
+"The material is soft and high quality.",1
+"The packaging was eco-friendly and neat.",1
+"It exceeds the industry standards.",1
+"The support team is very knowledgeable.",1
+"I love the portability of this device.",1
+"The screen is bright and very clear.",1
+"A fantastic value for the money.",1
+"I will definitely recommend this to others.",1
+"The connection is fast and stable.",1
+"It made a huge difference in my life.",1
+"The quality is consistent every time.",1
+"I am very satisfied with my purchase.",1
+"Everything was just perfect.",1
+"This was a total disaster from the start.",0
+"The quality is extremely poor and cheap.",0
+"It stopped working after the first use.",0
+"The customer service was very unhelpful.",0
+"I am so frustrated with this purchase.",0
+"The movie was a complete waste of time.",0
+"The food was tasteless and soggy.",0
+"It looks nothing like the advertisement.",0
+"The noise is loud and very annoying.",0
+"I had a terrible experience at this place.",0
+"The instructions are impossible to understand.",0
+"The item arrived broken into pieces.",0
+"I feel like I was scammed by this company.",0
+"The software is buggy and keeps lagging.",0
+"The design is awkward and hard to use.",0
+"It is very difficult to set up.",0
+"The smell was very strong and chemical.",0
+"I am deeply disappointed with the results.",0
+"The battery life is shockingly short.",0
+"It doesn't fit correctly at all.",0
+"The staff was very rude and dismissive.",0
+"I regret buying this product so much.",0
+"The shipping was delayed for weeks.",0
+"The device overheats very quickly.",0
+"The material feels very thin and flimsy.",0
+"I've had so many problems with this.",0
+"The color started to peel off.",0
+"The subscription is a total rip-off.",0
+"It is not compatible with anything.",0
+"The screen is blurry and hard to read.",0
+"I waited for hours and got no help.",0
+"The case is bulky and very heavy.",0
+"The plot was confusing and boring.",0
+"The new update broke the entire app.",0
+"The package was crushed and open.",0
+"It's a complete failure of a product.",0
+"The buttons are sticky and unresponsive.",0
+"The information provided was misleading.",0
+"The room was small, dark, and dirty.",0
+"The audio is distorted and scratchy.",0
+"I am very unhappy with the service.",0
+"It lacks almost all the promised features.",0
+"The assembly was far too complicated.",0
+"The product is very unstable and risky.",0
+"I will never buy from this brand again.",0
+"The interface is clunky and outdated.",0
+"It crashes every time I open it.",0
+"The fabric is rough and uncomfortable.",0
+"I've seen better quality for half the price.",0
+"Worst decision I've made this year.",0
+"The mountain view was absolutely breathtaking.",1
+"This skincare routine really cleared my skin.",1
+"The professor explained the concept so clearly.",1
+"I love how fast this laptop boots up.",1
+"The hotel staff made us feel at home.",1
+"This is a top-quality piece of furniture.",1
+"The game mechanics are smooth and fun.",1
+"I am very impressed with the fuel efficiency.",1
+"The fabric feels so soft against the skin.",1
+"This is the most helpful book I've read.",1
+"The concert was an unforgettable experience.",1
+"The battery life easily lasts two days.",1
+"I feel much more energetic after using this.",1
+"The assembly was quick and very easy.",1
+"A very sturdy and well-built structure.",1
+"The colors in the painting are so vivid.",1
+"The customer service exceeded my expectations.",1
+"This app is a lifesaver for my business.",1
+"The sound isolation is truly impressive.",1
+"I highly recommend this travel agency.",1
+"The texture of the cake was perfect.",1
+"It works perfectly with my smart home setup.",1
+"The design is very ergonomic and comfortable.",1
+"I am so glad I gave this a chance.",1
+"The delivery was handled with great care.",1
+"This is a must-have for every traveler.",1
+"The results were better than the photos.",1
+"I appreciate the high level of security.",1
+"The fragrance is subtle and very pleasant.",1
+"It is very easy to navigate the menu.",1
+"The video quality is crisp and detailed.",1
+"I feel very lucky to have found this.",1
+"The staff is always smiling and helpful.",1
+"This tool made the job ten times easier.",1
+"The performance is consistent and reliable.",1
+"I love the eco-friendly materials used.",1
+"The price is a bargain for this quality.",1
+"The wireless range is surprisingly long.",1
+"I am very happy with the overall service.",1
+"The product looks very elegant on my desk.",1
+"It provides excellent value for the money.",1
+"The updates are frequent and useful.",1
+"The storage capacity is more than enough.",1
+"I had a wonderful time at the event.",1
+"The texture of the cream is very light.",1
+"It is very durable and long-lasting.",1
+"The interface is very user-friendly.",1
+"I am completely satisfied with this choice.",1
+"The support team is fast and efficient.",1
+"A truly outstanding and unique product.",1
+"The flight was delayed for eight hours.",0
+"The mouse is very laggy and unresponsive.",0
+"The shirt shrank significantly after one wash.",0
+"I had a terrible allergic reaction to this.",0
+"The movie plot was full of holes.",0
+"The food arrived cold and very late.",0
+"The build quality is very flimsy and cheap.",0
+"I am extremely disappointed with the result.",0
+"The instructions were missing from the box.",0
+"The customer service was incredibly rude.",0
+"This is a complete waste of electricity.",0
+"The battery life is getting worse every day.",0
+"I regret spending my weekend on this.",0
+"The product arrived with a broken screen.",0
+"The website is very slow and hard to use.",0
+"The smell is very artificial and strong.",0
+"I feel like I've been misled by the ads.",0
+"The connection is very weak and unstable.",0
+"The design is very uncomfortable to hold.",0
+"It doesn't work as well as they claim.",0
+"The noise level is driving me crazy.",0
+"I had a very bad experience with the staff.",0
+"The material is very thin and easily torn.",0
+"I am very frustrated with the constant bugs.",0
+"The color is completely different from the ad.",0
+"The shipping cost is more than the product.",0
+"The device stopped charging after a week.",0
+"The fabric is very itchy and uncomfortable.",0
+"I've had nothing but trouble with this app.",0
+"The subscription is way too expensive.",0
+"It is not compatible with my operating system.",0
+"The sound is very hollow and distorted.",0
+"I waited for a response for over a week.",0
+"The case is too tight and hard to remove.",0
+"The ending was very disappointing and dull.",0
+"The latest update ruined the user experience.",0
+"The package was delivered to the wrong house.",0
+"It's a very poor imitation of the original.",0
+"The buttons feel very cheap and plasticky.",0
+"The information provided was totally wrong.",0
+"The room was noisy and very poorly lit.",0
+"The audio keeps cutting out every second.",0
+"I am very unhappy with the final outcome.",0
+"It lacks basic functions I expected.",0
+"The assembly took me more than five hours.",0
+"The product is very shaky and unstable.",0
+"I will never order from this site again.",0
+"The interface is very confusing to use.",0
+"It keeps freezing during important tasks.",0
+"Overall, it was a very bad investment.",0
+"The sunset over the ocean was purely magical.",1
+"This vacuum cleaner is surprisingly quiet.",1
+"The coffee here is the best in the city.",1
+"I love the ergonomic design of this keyboard.",1
+"The museum exhibit was incredibly educational.",1
+"This moisturizer makes my skin feel so hydrated.",1
+"The movie's soundtrack is absolutely haunting.",1
+"The new park is a great place for families.",1
+"I am very impressed with the stitching quality.",1
+"The pizza crust was thin and perfectly crispy.",1
+"This app helped me save so much money.",1
+"The tour guide was very knowledgeable and fun.",1
+"I love the vibrant colors of this rug.",1
+"The customer loyalty program is very generous.",1
+"This is a very reliable and sturdy ladder.",1
+"The garden is so peaceful and well-maintained.",1
+"I feel much more confident after this course.",1
+"The fruit was incredibly sweet and juicy.",1
+"This is the perfect gift for any tech lover.",1
+"The fabric of this dress is light and airy.",1
+"The online checkout process was seamless.",1
+"I am very happy with the battery's longevity.",1
+"The hotel breakfast had a wonderful variety.",1
+"This flashlight is incredibly bright and tough.",1
+"The teacher made learning math so enjoyable.",1
+"I love how organized the workspace is now.",1
+"The spicy ramen was absolutely delicious.",1
+"This is a very high-quality set of tools.",1
+"The delivery person was very polite and kind.",1
+"I am so glad I discovered this hidden gem.",1
+"The smart watch tracks my health accurately.",1
+"The scent of this candle is so refreshing.",1
+"I highly recommend this for long-road trips.",1
+"The performance of the engine is very stable.",1
+"The packaging was very artistic and unique.",1
+"I feel very productive using this planner.",1
+"The mountain air was so fresh and clean.",1
+"This is a very efficient way to clean the house.",1
+"The customer support chat was very fast.",1
+"I love the sleek and minimal look of this.",1
+"The organic tea has a very smooth taste.",1
+"This is a game-changer for my daily commute.",1
+"The leather feels very soft and premium.",1
+"I am very satisfied with the soundproofing.",1
+"The community here is very supportive.",1
+"This blender is powerful enough for anything.",1
+"The historical facts were very interesting.",1
+"I love the intuitive controls on this device.",1
+"The bed is the most comfortable I've ever felt.",1
+"This was an incredible value for the price.",1
+"The rain ruined our entire outdoor event.",0
+"The printer keeps jamming every two pages.",0
+"The food was incredibly salty and dry.",0
+"I am so annoyed by the constant notifications.",0
+"The material of this jacket is very scratchy.",0
+"The movie was way too long and boring.",0
+"The customer service was totally indifferent.",0
+"I regret buying this cheap knock-off.",0
+"The website crashed while I was paying.",0
+"The smell of the detergent is too chemical.",0
+"The room was freezing and very drafty.",0
+"The instructions were missing several steps.",0
+"I feel like I wasted my entire afternoon.",0
+"The battery life dropped by half in a month.",0
+"The product arrived with a very deep scratch.",0
+"The noise from the street was unbearable.",0
+"I am very disappointed with the build quality.",0
+"The app is very clunky and hard to use.",0
+"The fabric started pilling after one wear.",0
+"The delivery arrived two weeks late.",0
+"The staff was very unhelpful and impatient.",0
+"I had a very bad experience with the return.",0
+"The connection is slow and keeps timing out.",0
+"The design is very ugly and outdated.",0
+"It doesn't work as advertised on the box.",0
+"The weight of the bag is way too heavy.",0
+"I am so frustrated with the lack of updates.",0
+"The color looks very different from the site.",0
+"The shipping box was completely crushed.",0
+"The software is very laggy on older devices.",0
+"The taste of the soup was very artificial.",0
+"I will never go back to that restaurant.",0
+"The subscription fee is a total scam.",0
+"The product feels very flimsy and fragile.",0
+"The screen has a very annoying yellow tint.",0
+"I waited for an hour to be served.",0
+"The ending of the book was very weak.",0
+"The interface is very confusing for seniors.",0
+"The audio quality is very thin and tinny.",0
+"I am very unhappy with the customer service.",0
+"It lacks several key features I needed.",0
+"The assembly was a total nightmare to finish.",0
+"The product is very unstable and wobbles.",0
+"I will never recommend this brand to anyone.",0
+"The buttons are very stiff and hard to push.",0
+"The information in the manual was wrong.",0
+"The room was very dusty and smelled old.",0
+"The app keeps closing on its own.",0
+"I've had nothing but trouble with this purchase.",0
+"Overall, it was a very disappointing experience.",0
