@@ -8,7 +8,7 @@ def build_vocabulary(texts, min_freq=1,remove_stopwords=True,use_bigrams=True):
     total_docs=len(texts)
 
     for text in texts:
-        tokens = set(tokenize(text,remove_stopwords=remove_stopwords))
+        tokens = set(tokenize(text,remove_stopwords=remove_stopwords,use_bigrams=use_bigrams))
         doc_counts.update(tokens)
     
     vocab={"word2idx":{},"idf":{}}

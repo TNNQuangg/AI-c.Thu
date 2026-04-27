@@ -38,14 +38,26 @@ def recall_score (y_true,y_pred):
             recalls.append(0.0)
     return np.mean(recalls) if recalls else 0.0
 
-def f1_score(y_true,y_pred):
-    precision=precision_score(y_true,y_pred)
-    recall=recall_score(y_true,y_pred)
+def f1_score(y_true, y_pred):
+    y_true = np.array(y_true)
+    y_pred = np.array(y_pred)
+    classes = np.unique(y_true)
+    f1s = []
 
-    if (precision+recall)==0:
-        return 0.0
-    
-    return 2*precision*recall/(precision+recall)
+    for cls in classes:
+        tp = np.sum((y_true == cls) & (y_pred == cls))
+        fp = np.sum((y_true != cls) & (y_pred == cls))
+        fn = np.sum((y_true == cls) & (y_pred != cls))
+
+        precision = tp / (tp + fp) if tp + fp > 0 else 0.0
+        recall = tp / (tp + fn) if tp + fn > 0 else 0.0
+
+        if precision + recall == 0:
+            f1s.append(0.0)
+        else:
+            f1s.append(2 * precision * recall / (precision + recall))
+
+    return np.mean(f1s) if f1s else 0.0
 
 def confusion_matrix_multi(y_true,y_pred):
     y_true=np.array(y_true)

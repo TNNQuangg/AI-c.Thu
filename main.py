@@ -93,7 +93,7 @@ def main():
     
     # Test với một câu mới hoàn toàn
     print("\n===== TEST THỰC TẾ =====")
-    sample_text = "i love this book"
+    sample_text = "i hate dog"
     sample_vector = text_to_vector(sample_text, vocab, remove_stopwords=True)
     prediction = predict(tree, sample_vector)[0]
     
@@ -102,6 +102,13 @@ def main():
     
     print(f"Câu: '{sample_text}'")
     print(f"Dự đoán: {label_map.get(prediction, 'Unknown')}")
+
+    print("\n===== VẼ CÂY QUYẾT ĐỊNH (3 TẦNG ĐẦU TIÊN) =====")
+    # Tạo từ điển ngược: Biến { "good": 15 } thành { 15: "good" }
+    vocab_reverse = {idx: word for word, idx in vocab["word2idx"].items()}
+    
+    # In cây với độ sâu tối đa là 3
+    print_tree(tree, vocab_reverse, depth=0, max_print_depth=3)
 
 if __name__ == "__main__":
     main()

@@ -184,16 +184,24 @@ def label_to_text(label):
     mapping = {0: "negative",1: "neutral",2: "positive"}
     return mapping.get(label,"unknown")
 
-def print_tree(tree, vocab_reverse, depth=0, branch_name="root"):
+def print_tree(tree, vocab_reverse, depth=0, branch_name="root", max_print_depth=3):
     indent = "    " * depth
-    if tree["type"] == "leaf":
-        probs = tree.get("probabilities", {0: 0.0, 1: 0.0})
-        print(f"{indent}[{branch_name}] Leaf -> Predict: {tree['class']} ({label_to_text(tree['class'])}), Samples: {tree['samples']}, P(pos)={probs.get(1, 0.0):.2f}")
+    
+    # Điều kiện dừng: Rơi vào nút lá HOẶC đã đạt độ sâu tối đa muốn in
+    if tree["type"] == "leaf" or depth >= max_print_depth:
+        # SỬA LỖI Ở ĐÂY: Tìm nhãn trực tiếp từ từ điển counts mà không gọi majority_label
+        if tree["type"] == "leaf":
+            leaf_class = tree["class"]
+        else:
+            counts = tree.get("counts", {0: 1})
+            leaf_class = max(counts, key=counts.get)
+            
+        print(f"{indent}[{branch_name}] Leaf -> Predict: {leaf_class} ({label_to_text(leaf_class)}), Samples: {tree['samples']}")
         return
 
     feat_word = vocab_reverse.get(tree["feature_index"], f"feature_{tree['feature_index']}")
-    print(f"{indent}[{branch_name}] Node -> check '{feat_word}' <= {tree['threshold']} (gain: {tree['gain']:.4f}, samples: {tree['samples']})")
-    print(f"{indent}    if '{feat_word}' <= {tree['threshold']}:")
-    print_tree(tree["left"], vocab_reverse, depth + 1, branch_name="left")
+    print(f"{indent}[{branch_name}] Node -> check '{feat_word}' <= {tree['threshold']:.4f} (gain: {tree['gain']:.4f}, samples: {tree['samples']})")
+    print(f"{indent}    if '{feat_word}' <= {tree['threshold']:.4f}:")
+    print_tree(tree["left"], vocab_reverse, depth + 1, branch_name="left", max_print_depth=max_print_depth)
     print(f"{indent}    else:")
-    print_tree(tree["right"], vocab_reverse, depth + 1, branch_name="right")
+    print_tree(tree["right"], vocab_reverse, depth + 1, branch_name="right", max_print_depth=max_print_depth)
