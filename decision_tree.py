@@ -2,6 +2,7 @@ import math
 import numpy as np
 from tqdm import tqdm
 import scipy.sparse as sp
+import random
 
 def class_counts(labels):
     unique, counts=np.unique(labels,return_counts=True)
@@ -36,24 +37,53 @@ def split_dataset(X,y,feature_index,threshold=0.5):
 
     return X[left_mask], y[left_mask], X[right_mask],y[right_mask]
 
-def best_split(x,y, criterion="entropy"):
-    n_samples, n_features=x.shape
-    if n_samples ==0 or n_features==0:
-        return None,None,0.0
+def best_split(x, y, criterion="entropy", max_features=None):
+    n_samples, n_features = x.shape
+    if n_samples == 0 or n_features == 0:
+        return None, None, 0.0
     
-    best_feature,best_threshold,best_gain=None,None,0.0
-    impurity_func = entropy if criterion =="entropy" else gini
-    parent_impurity=impurity_func(y)
+    best_feature, best_threshold, best_gain = None, None, 0.0
+    impurity_func = entropy if criterion == "entropy" else gini
+    parent_impurity = impurity_func(y)
     
-    for feature_index in tqdm(range(n_features),desc="Searching",leave=False):
+    # =========================================================
+    # CHIẾN THUẬT CHE MẮT THÔNG MINH (TỰ ĐỘNG LẤY TỈ LỆ)
+    # =========================================================
+    # Bắt tất cả các chữ bắt đầu bằng "active_"
+    if isinstance(max_features, str) and max_features.startswith("active_"):
+        # Tự động cắt chuỗi lấy số (VD: "active_40" -> 40 -> 0.4)
+        percent = int(max_features.split("_")[1]) / 100.0
+        
         if sp.issparse(x):
-            non_zero_vals=x[:, feature_index].data
+            active_features = np.where(x.getnnz(axis=0) > 0)[0] 
         else:
-            feature_vals=x[:,feature_index]
-            non_zero_vals=feature_vals[feature_vals>0]
+            active_features = np.where(np.count_nonzero(x, axis=0) > 0)[0]
+            
+        if len(active_features) == 0:
+            return None, None, 0.0 
+            
+        # Nhân với tỉ lệ phần trăm vừa lấy được
+        n_subset = max(1, int(len(active_features) * percent))
+        features_to_search = random.sample(list(active_features), n_subset)
+        
+    elif max_features == "sqrt":
+        n_subset = max(1, int(math.sqrt(n_features)))
+        features_to_search = random.sample(range(n_features), n_subset)
+    elif max_features is None:
+        features_to_search = range(n_features)
+    else:
+        features_to_search = range(n_features)
+    # =========================================================
+    
+    for feature_index in tqdm(features_to_search, desc="Searching", leave=False):
+        if sp.issparse(x):
+            non_zero_vals = x[:, feature_index].data
+        else:
+            feature_vals = x[:, feature_index]
+            non_zero_vals = feature_vals[feature_vals > 0]
 
-        if len(non_zero_vals)==0:
-            thresholds=[0.0]
+        if len(non_zero_vals) == 0:
+            thresholds = [0.0]
         else:
             thresholds = [
                 0.0, 
@@ -61,103 +91,61 @@ def best_split(x,y, criterion="entropy"):
                 np.median(non_zero_vals), 
                 np.percentile(non_zero_vals, 75)
             ]
-            thresholds=list(set(thresholds))
+            thresholds = list(set(thresholds))
 
         for threshold in thresholds:
-            left_x,left_y,right_x,right_y=split_dataset(x,y,feature_index,threshold)
-            if len(left_y)==0 or len(right_y)==0:
+            left_x, left_y, right_x, right_y = split_dataset(x, y, feature_index, threshold)
+            if len(left_y) == 0 or len(right_y) == 0:
                 continue
 
-            left_weight=len(left_y)/n_samples
-            right_weight=len(right_y)/n_samples
-            weighted_child_impurity=(left_weight*impurity_func(left_y)+right_weight*impurity_func(right_y))
+            left_weight = len(left_y) / n_samples
+            right_weight = len(right_y) / n_samples
+            weighted_child_impurity = (left_weight * impurity_func(left_y) + right_weight * impurity_func(right_y))
 
-            gain=parent_impurity-weighted_child_impurity
+            gain = parent_impurity - weighted_child_impurity
 
-            if gain>best_gain:
-                best_gain=gain
-                best_feature=feature_index
-                best_threshold=threshold
+            if gain > best_gain:
+                best_gain = gain
+                best_feature = feature_index
+                best_threshold = threshold
             
-    return best_feature, best_threshold,best_gain
+    return best_feature, best_threshold, best_gain
     
 def majority_label(labels):
     counts=class_counts(labels)
     return max(counts, key=counts.get)
 
-def build_tree(x,y,depth=0, max_depth=20,min_samples_split=10,min_samples_leaf=10,criterion="entropy"):
-    
+# THÊM THAM SỐ max_features VÀO HÀM DƯỚI DÂY:
+def build_tree(x, y, depth=0, max_depth=20, min_samples_split=10, min_samples_leaf=10, criterion="entropy", max_features=None):
     if not sp.issparse(x):
-        x=np.array(x)
-    y=np.array(y)
+        x = np.array(x)
+    y = np.array(y)
 
-    current_counts=class_counts(y)
-    current_samples=len(y)
+    current_counts = class_counts(y)
+    current_samples = len(y)
 
-    unique_labels=np.unique(y)
-    probabilities={label: (current_counts.get(label,0)/current_samples) for label in unique_labels}
+    unique_labels = np.unique(y)
+    probabilities = {label: (current_counts.get(label, 0) / current_samples) for label in unique_labels}
 
-    if len(np.unique(y))==1 or depth>=max_depth or current_samples < min_samples_split:
-        return {
-            "type": "leaf",
-            "class": majority_label(y),
-            "samples":current_samples,
-            "counts": current_counts,
-            "probabilities":probabilities
-        }
+    if len(np.unique(y)) == 1 or depth >= max_depth or current_samples < min_samples_split:
+        return {"type": "leaf", "class": majority_label(y), "samples": current_samples, "counts": current_counts, "probabilities": probabilities}
     
-    feature_index,threshold,gain=best_split(x,y,criterion)
+    # TRUYỀN max_features XUỐNG best_split
+    feature_index, threshold, gain = best_split(x, y, criterion, max_features)
     
-    if feature_index is None or gain<=1e-6:
-        return {
-            "type": "leaf",
-            "class": majority_label(y),
-            "samples":current_samples,
-            "counts": current_counts,
-            "probabilities":probabilities
-        }
+    if feature_index is None or gain <= 1e-6:
+        return {"type": "leaf", "class": majority_label(y), "samples": current_samples, "counts": current_counts, "probabilities": probabilities}
     
-    left_x, left_y, right_x, right_y = split_dataset(x,y, feature_index,threshold)
+    left_x, left_y, right_x, right_y = split_dataset(x, y, feature_index, threshold)
     
-    if len(left_y)<min_samples_leaf or len(right_y)<min_samples_leaf:
-        return{
-            "type":"leaf",
-            "class":majority_label(y),
-            "samples": current_samples,
-            "counts": current_counts,
-            "probabilities":probabilities
-        }
+    if len(left_y) < min_samples_leaf or len(right_y) < min_samples_leaf:
+        return {"type": "leaf", "class": majority_label(y), "samples": current_samples, "counts": current_counts, "probabilities": probabilities}
 
-    left_subtree= build_tree(
-        left_x,
-        left_y,
-        depth+1,
-        max_depth,
-        min_samples_split,
-        min_samples_leaf,
-        criterion
-    )
+    # TRUYỀN max_features VÀO CÁC LẦN GỌI ĐỆ QUY
+    left_subtree = build_tree(left_x, left_y, depth + 1, max_depth, min_samples_split, min_samples_leaf, criterion, max_features)
+    right_subtree = build_tree(right_x, right_y, depth + 1, max_depth, min_samples_split, min_samples_leaf, criterion, max_features)
 
-    right_subtree= build_tree(
-        right_x,
-        right_y,
-        depth+1,
-        max_depth,
-        min_samples_split,
-        min_samples_leaf,
-        criterion
-    )
-
-    return {
-        "type": "node",
-        "feature_index": feature_index,
-        "threshold":threshold,
-        "gain": gain,
-        "samples":current_samples,
-        "counts": current_counts,
-        "left": left_subtree,
-        "right": right_subtree
-    }
+    return {"type": "node", "feature_index": feature_index, "threshold": threshold, "gain": gain, "samples": current_samples, "counts": current_counts, "left": left_subtree, "right": right_subtree}
 
 def predict_one(tree, x_row):
     if tree["type"] =="leaf":

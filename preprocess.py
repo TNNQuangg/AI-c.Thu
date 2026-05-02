@@ -13,8 +13,7 @@ stemmer = PorterStemmer() # <--- 2. Khởi tạo Stemmer
 
 STOP_WORDS = set(stopwords.words('english'))
 STOP_WORDS.update(['yr', 'year', 'woman', 'man', 'girl','boy','one', 'two', 'sixteen', 'yearold', 'fu', 'weeks', 'week',
-              'treatment', 'associated', 'patients', 'may','day', 'case','old','u','n','didnt','ive','ate','feel','keep'
-                ,'brother','dad','basic','im'])
+              'treatment', 'associated', 'patients', 'may','day', 'case','old','u','n','ive','ate','brother','dad','basic','im'])
 
 negation_words = {
     "no", "not", "nor", "none", "never", 
