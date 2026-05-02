@@ -167,7 +167,33 @@ def predict(tree, X):
         row=X[i]
         y_pred.append(predict_one(tree,row))
     return np.array(y_pred)
-    
+
+def predict_proba_one(tree, x_row, n_classes=3):
+    """Đi xuống cây đến leaf, trả về vector xác suất [neg, neu, pos]
+    dựa trên tỉ lệ thật sự của các mẫu trong leaf đó."""
+    if tree["type"] == "leaf":
+        probs = np.zeros(n_classes)
+        total = tree["samples"]
+        for label, count in tree["counts"].items():
+            if int(label) < n_classes:
+                probs[int(label)] = count / total
+        return probs
+
+    val = x_row[0, tree["feature_index"]] if sp.issparse(x_row) else x_row[tree["feature_index"]]
+    if val <= tree["threshold"]:
+        return predict_proba_one(tree["left"], x_row, n_classes)
+    else:
+        return predict_proba_one(tree["right"], x_row, n_classes)
+
+def predict_proba(tree, X, n_classes=3):
+    """Trả về ma trận (n_samples, n_classes) — xác suất của từng class cho mỗi mẫu."""
+    if sp.issparse(X):
+        X = X.tocsr()
+    return np.array([
+        predict_proba_one(tree, X[i], n_classes)
+        for i in range(X.shape[0])
+    ])
+
 def label_to_text(label):
     mapping = {0: "negative",1: "neutral",2: "positive"}
     return mapping.get(label,"unknown")

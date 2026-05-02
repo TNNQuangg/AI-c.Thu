@@ -61,7 +61,7 @@ def main():
         # Sửa lại hàm gọi Train
         print(f"Đang huấn luyện Rừng Ngẫu Nhiên... (Kích thước tập train: {X_train.shape})")
         # Khuyên dùng: Nên test n_trees=5 trước để xem thời gian. Sau đó có thể tăng lên 10 hoặc 20
-        tree = build_random_forest(X_train, y_train, n_trees=70, max_depth=20, min_samples_leaf=10, max_features="active_40")
+        tree = build_random_forest(X_train, y_train, n_trees=70, max_depth=20, min_samples_leaf=10, max_features="active_30")
         
         # 4. LƯU MÔ HÌNH LẠI ĐỂ LẦN SAU DÙNG
         save_model(tree, vocab, MODEL_FILE)
@@ -82,7 +82,9 @@ def main():
     # Dù là model mới train hay model load lên, ta đều có thể test
     print("\n===== ĐÁNH GIÁ MÔ HÌNH TRÊN TẬP TEST =====")
     X_test = texts_to_matrix(test_texts, vocab, remove_stopwords=True,use_bigrams=True)
-    y_pred = predict_random_forest(tree, X_test) # "tree" lúc này load lên chứa nguyên 1 list Rừng
+
+    # Soft voting + neutral threshold=0.5
+    y_pred, _ = predict_random_forest(tree, X_test, neutral_threshold=0.5)
     
     print("Accuracy :", accuracy_score(y_test, y_pred))
     print("Precision:", precision_score(y_test, y_pred))
@@ -98,13 +100,16 @@ def main():
     print("\n===== TEST THỰC TẾ =====")
     sample_text = "i hate dog"
     sample_vector = text_to_vector(sample_text, vocab, remove_stopwords=True,use_bigrams=True)
-    prediction = predict_random_forest(tree, sample_vector)[0]
+
+    prediction, sample_probs = predict_random_forest(tree, sample_vector, neutral_threshold=0.5)
+    prediction = prediction[0]
     
     # Cập nhật ánh xạ nhãn cho 3 lớp
     label_map = {0: "Negative (0)", 1: "Neutral (1)", 2: "Positive (2)"}
     
-    print(f"Câu: '{sample_text}'")
-    print(f"Dự đoán: {label_map.get(prediction, 'Unknown')}")
+    print(f"Câu      : '{sample_text}'")
+    print(f"Xác suất : Neg={sample_probs[0][0]:.3f} | Neu={sample_probs[0][1]:.3f} | Pos={sample_probs[0][2]:.3f}")
+    print(f"Dự đoán  : {label_map.get(prediction, 'Unknown')}")
 
     print("\n===== VẼ CÂY QUYẾT ĐỊNH (3 TẦNG ĐẦU TIÊN) =====")
     # Tạo từ điển ngược: Biến { "good": 15 } thành { 15: "good" }
