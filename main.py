@@ -4,7 +4,7 @@ import numpy as np
 import random
 from utils import save_model, load_model
 from vectorizer import build_vocabulary, texts_to_matrix, text_to_vector
-from decision_tree import build_tree, predict, print_tree
+from decision_tree import build_tree, predict
 from metrics import (
     accuracy_score,
     precision_score,
@@ -98,7 +98,7 @@ def main():
     
     # Test với một câu mới hoàn toàn
     print("\n===== TEST THỰC TẾ =====")
-    sample_text = "i hate dog"
+    sample_text = "i want to learn english"
     sample_vector = text_to_vector(sample_text, vocab, remove_stopwords=True,use_bigrams=True)
 
     prediction, sample_probs = predict_random_forest(tree, sample_vector, neutral_threshold=0.5)
@@ -110,13 +110,6 @@ def main():
     print(f"Câu      : '{sample_text}'")
     print(f"Xác suất : Neg={sample_probs[0][0]:.3f} | Neu={sample_probs[0][1]:.3f} | Pos={sample_probs[0][2]:.3f}")
     print(f"Dự đoán  : {label_map.get(prediction, 'Unknown')}")
-
-    print("\n===== VẼ CÂY QUYẾT ĐỊNH (3 TẦNG ĐẦU TIÊN) =====")
-    # Tạo từ điển ngược: Biến { "good": 15 } thành { 15: "good" }
-    vocab_reverse = {idx: word for word, idx in vocab["word2idx"].items()}
-    
-    # In cây với độ sâu tối đa là 3
-    print_tree(tree[0], vocab_reverse, depth=0, max_print_depth=3)
 
 if __name__ == "__main__":
     main()

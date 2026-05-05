@@ -197,25 +197,3 @@ def predict_proba(tree, X, n_classes=3):
 def label_to_text(label):
     mapping = {0: "negative",1: "neutral",2: "positive"}
     return mapping.get(label,"unknown")
-
-def print_tree(tree, vocab_reverse, depth=0, branch_name="root", max_print_depth=3):
-    indent = "    " * depth
-    
-    # Điều kiện dừng: Rơi vào nút lá HOẶC đã đạt độ sâu tối đa muốn in
-    if tree["type"] == "leaf" or depth >= max_print_depth:
-        # SỬA LỖI Ở ĐÂY: Tìm nhãn trực tiếp từ từ điển counts mà không gọi majority_label
-        if tree["type"] == "leaf":
-            leaf_class = tree["class"]
-        else:
-            counts = tree.get("counts", {0: 1})
-            leaf_class = max(counts, key=counts.get)
-            
-        print(f"{indent}[{branch_name}] Leaf -> Predict: {leaf_class} ({label_to_text(leaf_class)}), Samples: {tree['samples']}")
-        return
-
-    feat_word = vocab_reverse.get(tree["feature_index"], f"feature_{tree['feature_index']}")
-    print(f"{indent}[{branch_name}] Node -> check '{feat_word}' <= {tree['threshold']:.4f} (gain: {tree['gain']:.4f}, samples: {tree['samples']})")
-    print(f"{indent}    if '{feat_word}' <= {tree['threshold']:.4f}:")
-    print_tree(tree["left"], vocab_reverse, depth + 1, branch_name="left", max_print_depth=max_print_depth)
-    print(f"{indent}    else:")
-    print_tree(tree["right"], vocab_reverse, depth + 1, branch_name="right", max_print_depth=max_print_depth)
